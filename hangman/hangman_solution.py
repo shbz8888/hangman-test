@@ -83,10 +83,13 @@ class Hangman:
         If it passes both checks, it calls the check_letter method.
         '''
         while True:
-            letter = input('Enter a single character: ')
+            letter = input('Enter a single character: ').lower()
             if len (letter) > 1:
                 print('Please, enter just one character')
-            elif len(letter) == 1:
+            elif len(letter) == 1 and letter in self.list_letters:
+                print(f'{letter} was already tried')
+            elif len(letter) == 1 and letter not in self.list_letters:
+                self.list_letters.append(letter)
                 print('That\'s right')
             else:
                 print('Please, enter a character')
