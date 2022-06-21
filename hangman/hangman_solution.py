@@ -47,7 +47,7 @@ class Hangman:
         self.num_lives = num_lives
         self.list_letters = []
 
-        print(f'the mystery word has {len(self.word)} charactes')
+        print(f'the mystery word has {len(self.word)} characters')
         print(self.word_guessed)
 
         # TODO 2: Initialize the attributes as indicated in the docstring
@@ -57,6 +57,14 @@ class Hangman:
         pass
 
     def check_letter(self, letter) -> None:
+        
+        
+        indices = [i for i, L in enumerate(self.word) if L == letter]
+        for index in indices:
+            self.word_guessed[index] = letter 
+            print(f'Nice! {letter} is in the word')
+            print(self.word_guessed)
+
         '''
         Checks if the letter is in the word.
         If it is, it replaces the '_' in the word_guessed list with the letter.
@@ -83,13 +91,15 @@ class Hangman:
         If it passes both checks, it calls the check_letter method.
         '''
         while True:
-            letter = input('Enter a single character: ')
-            if len (letter) > 1:
-                print('Please, enter just one character')
-            elif len(letter) == 1:
-                print('That\'s right')
-            else:
-                print('Please, enter a character')
+            letter = input('Enter a single character: ').lower()
+            if len(letter) == 1 and letter in self.list_letters:
+                print(f'{letter} was already tried')
+            elif len(letter) == 1 and letter not in self.list_letters:
+                print('Thank you')
+                self.list_letters.append(letter)
+                self.check_letter(letter)
+        else:
+            print('Please, enter just 1 character')
 
         # TODO 1: Ask the user for a letter iteratively until the user enters a valid letter
         # TODO 1: Assign the letter to a variable called `letter`
