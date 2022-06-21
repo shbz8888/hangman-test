@@ -58,10 +58,11 @@ class Hangman:
 
     def check_letter(self, letter) -> None:
         
-        #
+        
         indices = [i for i, L in enumerate(self.word) if L == letter]
         for index in indices:
-            self.word_guessed[index] = letter
+            self.word_guessed[index] = letter 
+            print(f'Nice! {letter} is in the word')
             print(self.word_guessed)
 
         '''
@@ -96,7 +97,6 @@ class Hangman:
             elif len(letter) == 1 and letter not in self.list_letters:
                 print('Thank you')
                 self.list_letters.append(letter)
-                
         else:
             print('Please, enter just 1 character')
 
