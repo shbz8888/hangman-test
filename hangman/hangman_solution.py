@@ -63,8 +63,10 @@ class Hangman:
         #   print(f'Nice {letter} is in the word!')
         #   print(f'{self.word_guessed}') 
         #
-        
-
+        indices = [i for i, L in enumerate(self.word) if L == letter]
+        for index in indices:
+            self.word_guessed[index] = letter
+            print(self.word_guessed)
 
         '''
         Checks if the letter is in the word.
