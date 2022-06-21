@@ -97,6 +97,7 @@ class Hangman:
             elif len(letter) == 1 and letter not in self.list_letters:
                 print('Thank you')
                 self.list_letters.append(letter)
+                self.check_letter(letter)
         else:
             print('Please, enter just 1 character')
 
