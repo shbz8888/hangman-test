@@ -57,12 +57,13 @@ class Hangman:
         pass
 
     def check_letter(self, letter) -> None:
-        if "{letter}" is in self.word :
-            self.word_guessed.replace("'_','{letter}'")
-            print('Nice {letter} is in the word!')
-            print(f'{self.word_guessed}') 
-
-
+        #word = self.word
+        #if "{letter}" in word:
+        #   self.word_guessed = self.word_guessed.replace("'_'","'{letter}'")
+        #   print(f'Nice {letter} is in the word!')
+        #   print(f'{self.word_guessed}') 
+        #
+        
 
 
         '''
