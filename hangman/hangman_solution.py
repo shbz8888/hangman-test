@@ -103,7 +103,9 @@ class Hangman:
                 print('Thank you')
                 self.list_letters.append(letter)
                 self.check_letter(letter)
-                if self.num_lives = 0
+                if self.num_lives is 0:
+                    print('you have run out of lives')
+                    return
         else:
             print('Please, enter just 1 character')
         
