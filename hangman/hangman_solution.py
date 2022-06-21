@@ -4,6 +4,7 @@ The prints have to contain the same text as indicated, don't add any more prints
 or you will get 0 for this assignment.
 '''
 import random
+from re import S
 
 class Hangman:
     '''
@@ -58,13 +59,17 @@ class Hangman:
 
     def check_letter(self, letter) -> None:
         
+        if letter in self.word:
+            indices = [i for i, L in enumerate(self.word) if L == letter]
+            for index in indices:
+                self.word_guessed[index] = letter 
+                print(f'Nice! {letter} is in the word')
+                print(self.word_guessed)
+        else:
+            self.num_lives -=1
+            print(f'Sorry,{letter} is not in word.')
+            print(f'You have {self.num_lives} lives left')
         
-        indices = [i for i, L in enumerate(self.word) if L == letter]
-        for index in indices:
-            self.word_guessed[index] = letter 
-            print(f'Nice! {letter} is in the word')
-            print(self.word_guessed)
-
         '''
         Checks if the letter is in the word.
         If it is, it replaces the '_' in the word_guessed list with the letter.
@@ -98,8 +103,10 @@ class Hangman:
                 print('Thank you')
                 self.list_letters.append(letter)
                 self.check_letter(letter)
+                if self.num_lives = 0
         else:
             print('Please, enter just 1 character')
+        
 
         # TODO 1: Ask the user for a letter iteratively until the user enters a valid letter
         # TODO 1: Assign the letter to a variable called `letter`
