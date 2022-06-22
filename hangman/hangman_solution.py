@@ -104,7 +104,10 @@ class Hangman:
                 self.list_letters.append(letter)
                 self.check_letter(letter)
                 if self.num_lives is 0:
-                    print('you have run out of lives')
+                    print('you have run out of lives, game over')
+                    return
+                if '_' not in self.word_guessed:
+                    print('well done you won')
                     return
         else:
             print('Please, enter just 1 character')
