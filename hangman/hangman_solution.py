@@ -59,7 +59,7 @@ class Hangman:
 
     def check_letter(self, letter) -> None:
         
-        if letter in self.word:
+        if  letter in self.word:
             indices = [i for i, L in enumerate(self.word) if L == letter]
             for index in indices:
                 self.word_guessed[index] = letter 
@@ -103,8 +103,42 @@ class Hangman:
                 print('Thank you')
                 self.list_letters.append(letter)
                 self.check_letter(letter)
-                if self.num_lives is 0:
+                if self.num_lives == 4:
+                    print('____')
+                    print('|   |')
+                    print('|    ')
+                    print('|    ')
+                    print('|    ')
+                    print('|____')
+                if self.num_lives == 3:
+                    print('____')
+                    print('|   |')
+                    print('|   o')
+                    print('|    ')
+                    print('|    ')
+                    print('|____')
+                if self.num_lives == 2:
+                    print('____')
+                    print('|   |')
+                    print('|   o')
+                    print('|   |')
+                    print('|    ')
+                    print('|____')
+                if self.num_lives == 1:
+                    print('____')
+                    print('|   |')
+                    print('|   o')
+                    print('|  \|/')
+                    print('|    ')
+                    print('|____')
+                if self.num_lives == 0:
                     print('you have run out of lives, game over')
+                    print('____')
+                    print('|   |')
+                    print('|   o')
+                    print('|  \|/')
+                    print('|  / \ ')
+                    print('|____')
                     return
                 if '_' not in self.word_guessed:
                     print('well done you won')
@@ -119,6 +153,7 @@ class Hangman:
         # TODO 2. It has to be a letter that has not been tried yet. Use the list_letters attribute to check this. If it has been tried, print "{letter} was already tried".
         # TODO 3: If the letter is valid, call the check_letter method
         pass
+    
 
 def play_game(word_list):
     # As an aid, part of the code is already provided:
